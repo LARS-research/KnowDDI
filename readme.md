@@ -1,4 +1,4 @@
-# Predicting Multi-typed Drug-Drug Interaction with Knowledge Subgraphs
+# Accurate and interpretable drug-drug interaction prediction enabled by knowledge subgraph learning
 
 
 ## Contents
@@ -15,12 +15,17 @@
 
 # Overview
 
-Drug-drug interaction (DDI) prediction is a vital task in drug discovery. However, predicting DDI is hard as known DDI fact triplets are very rare. Here, we present KnowDDI to handle multi-typed DDI prediction by learning knowledge subgraphs from external knowledge graph. On a large, merged graph of DDI fact triplets and external knowledge graph which contains diverse organized information of biomedical entities, KnowDDI obtains generic node embeddings to encode the global topology. To leverage the relevant information to target drug pair, KnowDDI further extracts its directed drug pair-aware subgraph and refines its graph structure and node embeddings to be drug pair-aware. The resultant knowledge subgraph is more predictive of DDI types and can provide explaining paths to interpret the prediction results. Experimental results on benchmark datasets show that KnowDDI obtains better prediction performance, has better interpret ability, and suffers less from data sparsity than existing works. This repository contains the source code of KnowDDI.
+Background: Discovering potential drug-drug interactions (DDIs) is a long-standing challenge in clinical treatments and drug developments. Recently, deep learning techniques have been developed for DDI prediction. However, they generally require a huge number of samples, while known DDIs are rare.
+
+Methods: In this work, we present KnowDDI, a graph neural network-based method that addresses the above challenge. KnowDDI enhances drug representations by adaptively leveraging rich neighborhood information from large biomedical knowledge graphs. Then, it learns a knowledge subgraph for each drug-pair to interpret the predicted DDI, where each of the edges is associated with a connection strength indicating the importance of a known DDI or resembling strength between a drug-pair whose connection is unknown. Thus, the lack of DDIs is implicitly compensated by the enriched drug representations and propagated drug similarities.
+
+Results: Here we show the evaluation results of KnowDDI on two benchmark DDI datasets. Results show that KnowDDI obtains the state-of-the-art prediction performance with better interpretability. We also find that KnowDDI suffers less than existing works given a sparser knowledge graph. This indicates that the propagated drug similarities play a more important role in compensating for the lack of DDIs when the drug representations are less enriched.
+
+Conclusions: KnowDDI nicely combines the efficiency of deep learning techniques and the rich prior knowledge in biomedical knowledge graphs. As an original open-source tool, KnowDDI can help detect possible interactions in a broad range of relevant interaction prediction tasks, such as protein-protein interactions, drug-target interactions and diseasegene interactions, eventually promoting the development of biomedicine and healthcare.
 
 # Repo Contents
 
 - [data](./data): the pre-processed dataset of Drugbank and BioSNAP.
-- [paddle](./paddle): the paddle version code of KnowDDI.
 - [pytorch](./pytorch): the pytorch version code of KnowDDI.
 - [raw_data](./raw_data): the origin dataset of Drugbank and BioSNAP.
 
@@ -115,7 +120,12 @@ We provide [examples](./pytorch/experiments/) on two datasets with expected expe
 Please kindly cite this paper if you find it useful for your research. Thanks!
 
 ```
-
+@article{wang2023accurate,
+  title={Accurate and interpretable drug-drug interaction prediction enabled by knowledge subgraph learning},
+  author={Wang, Yaqing and Yang, Zaifei and Yao, Quanming},
+  journal={arXiv preprint arXiv:2311.15056},
+  year={2023}
+}
 ```
 
 ## Acknowledgement
