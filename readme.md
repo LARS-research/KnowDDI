@@ -55,17 +55,6 @@ tqdm==4.43.0
 dgl-cu102==0.6.1
 ```
 
-For the paddle version, the environment required by the code is as follows.
-```
-python==3.7.15
-paddlepaddle-gpu==2.3.2
-lmdb==0.98
-networkx==2.4
-scikit-learn==0.22.1
-tqdm==4.43.0
-pgl==2.2.4
-```
-
 # Installation Guide
 For the pytorch version, please follow the commands below:
 ```
@@ -76,17 +65,6 @@ conda install pytorch==1.6.0 torchvision==0.7.0 cudatoolkit=10.2 -c pytorch
 pip install dgl-cu102==0.6.1
 pip install -r requirements.txt
 cd pytorch
-```
-
-For the paddle version, please follow the commands below:
-```
-git clone git@github.com:tata1661/KnowDDI-codes.git
-cd KnowDDI-codes
-conda create -n KnowDDI_paddle python=3.7
-python3 -m pip install paddlepaddle-gpu==2.4.1
-pip install pgl==2.2.4
-pip install -r requirements.txt
-cd paddle
 ```
 
 # Examples
